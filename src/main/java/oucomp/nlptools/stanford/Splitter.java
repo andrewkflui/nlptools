@@ -1,7 +1,5 @@
 package oucomp.nlptools.stanford;
 
-
-
 import edu.stanford.nlp.ling.HasWord;
 import edu.stanford.nlp.process.DocumentPreprocessor;
 import java.io.Reader;
@@ -10,7 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class StanfordSplitter {
+public class Splitter {
 
   public static List<String> splitSentence(String doc) {
     List<String> sentenceList = new LinkedList<String>();
