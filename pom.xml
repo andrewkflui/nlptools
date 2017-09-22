@@ -68,6 +68,17 @@
       <version>3.8.0</version>
       <classifier>models</classifier>
     </dependency>
-    
+    <dependency>
+      <groupId>edu.stanford.nlp</groupId>
+      <artifactId>stanford-corenlp</artifactId>
+      <version>3.8.0</version>
+      <classifier>models-english</classifier>
+    </dependency>
+    <dependency>
+      <groupId>edu.stanford.nlp</groupId>
+      <artifactId>stanford-corenlp</artifactId>
+      <version>3.8.0</version>
+      <classifier>models-chinese</classifier>
+    </dependency>
   </dependencies>
 </project>

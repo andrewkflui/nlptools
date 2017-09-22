@@ -1,7 +1,9 @@
 package oucomp.nlptools.stanford;
+
+
 import edu.stanford.nlp.dcoref.CorefChain;
 import edu.stanford.nlp.dcoref.CorefChain.CorefMention;
-import edu.stanford.nlp.dcoref.CorefCoreAnnotations.CorefChainAnnotation;
+import edu.stanford.nlp.dcoref.CorefCoreAnnotations;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreAnnotations.NamedEntityTagAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.PartOfSpeechAnnotation;
@@ -34,16 +36,20 @@ public class Coreference {
     pipeline.annotate(document);
     pipeline.prettyPrint(document, System.out);
     System.out.println("---");
+
+    Map<Integer, CorefChain> corefMap = document.get(CorefCoreAnnotations.CorefChainAnnotation.class);
+
     return document;
   }
 
   public List<CoreMap> getSentences(Annotation annotatedDoc) {
     List<CoreMap> sentences = annotatedDoc.get(CoreAnnotations.SentencesAnnotation.class);
+
     return sentences;
   }
 
   public Collection<CorefChain> getCorefChainList(Annotation annotatedDoc) {
-    Map<Integer, CorefChain> corefMap = annotatedDoc.get(CorefChainAnnotation.class);
+    Map<Integer, CorefChain> corefMap = annotatedDoc.get(CorefCoreAnnotations.CorefChainAnnotation.class);
     if (corefMap == null) {
       System.out.println("CorefMap is NULL");
       return null;
@@ -89,7 +95,7 @@ public class Coreference {
   public void demo(String text) {
     Annotation annotatedDocument = this.annotate(text);
     System.out.println("=== CORE COREF CHAIN");
-    Collection<CorefChain> chainList = getCorefChainList(annotatedDocument);
+    Collection<CorefChain> chainList = this.getCorefChainList(annotatedDocument);
     printCorefChainList(chainList);
     if (chainList != null) {
       System.out.println("=== MENTIONS OF COREF CHAIN");
