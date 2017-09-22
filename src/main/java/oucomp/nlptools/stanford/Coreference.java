@@ -36,9 +36,6 @@ public class Coreference {
     pipeline.annotate(document);
     pipeline.prettyPrint(document, System.out);
     System.out.println("---");
-
-    Map<Integer, CorefChain> corefMap = document.get(CorefCoreAnnotations.CorefChainAnnotation.class);
-
     return document;
   }
 
