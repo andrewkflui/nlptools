@@ -128,6 +128,7 @@ public class Dependency {
 
   public void demoTestCase() {
     String text = "Bills on ports and immigration were not submitted by Senator Brownback, Republican of Kansas";
+    text = "I eat sandwich every morning";
     demo(text);
   }
 

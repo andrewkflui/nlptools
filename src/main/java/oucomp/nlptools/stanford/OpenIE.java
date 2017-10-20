@@ -123,7 +123,7 @@ public class OpenIE {
     System.out.println("\nStanford OpenIE Extraction Demo");
     OpenIE sen = new OpenIE();
 
-    sen.demoTestCase();
-    //sen.demoInteractive();
+    //sen.demoTestCase();
+    sen.demoInteractive();
   }
 }
